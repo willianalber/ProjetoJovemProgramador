@@ -1,0 +1,71 @@
+﻿<div>
+    <h1>
+        Dados dos alunos
+    </h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Idade</th>
+                <th scope="col">Contato</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Cep</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Willian</td>
+                <td>29</td>
+                <td>47996847260</td>
+                <td>willianinfo2017@gmail.com</td>
+                <td>89110-430</td>
+                <td>
+                    <a type="button" class="btn btn-primary" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="89110-430">Endereço</a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Pedro</td>
+                <td>18</td>
+                <td>479999-9999</td>
+                <td>Pedro@gmail.com</td>
+                <td>89110-430</td>
+                <td>
+                    <a type="button" class="btn btn-primary" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="89110-430">Endereço</a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Ruan</td>
+                <td>25</td>
+                <td>479999-9999</td>
+                <td>Ruan@gmail.com</td>
+                <td>89110-430</td>
+                <td>
+                    <a type="button" class="btn btn-primary" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="89110-430">Endereço</a>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>Beatrice</td>
+                <td>17</td>
+                <td>479999-9999</td>
+                <td>Beatrice@gmail.com</td>
+                <td>89110-430</td>
+                <td>
+                    <a type="button" class="btn btn-primary" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="3-2">Endereço</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="text-center">
+        <a href="@Url.Action("Adicionar", "Aluno")" class="btn btn-primary">
+            Adicionar Novo Aluno
+        </a>
+    </div>
+
+</div>
+
