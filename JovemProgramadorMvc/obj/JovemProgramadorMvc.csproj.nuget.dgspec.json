@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\willian.oliveira\\Documents\\JovemProgramadorMvc\\JovemProgramadorMvc.csproj": {}
+    "C:\\ProjetoJovemProgramador\\JovemProgramadorMvc\\JovemProgramadorMvc.csproj": {}
   },
   "projects": {
-    "C:\\Users\\willian.oliveira\\Documents\\JovemProgramadorMvc\\JovemProgramadorMvc.csproj": {
+    "C:\\ProjetoJovemProgramador\\JovemProgramadorMvc\\JovemProgramadorMvc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\willian.oliveira\\Documents\\JovemProgramadorMvc\\JovemProgramadorMvc.csproj",
+        "projectUniqueName": "C:\\ProjetoJovemProgramador\\JovemProgramadorMvc\\JovemProgramadorMvc.csproj",
         "projectName": "JovemProgramadorMvc",
-        "projectPath": "C:\\Users\\willian.oliveira\\Documents\\JovemProgramadorMvc\\JovemProgramadorMvc.csproj",
+        "projectPath": "C:\\ProjetoJovemProgramador\\JovemProgramadorMvc\\JovemProgramadorMvc.csproj",
         "packagesPath": "C:\\Users\\willian.oliveira\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\willian.oliveira\\Documents\\JovemProgramadorMvc\\obj\\",
+        "outputPath": "C:\\ProjetoJovemProgramador\\JovemProgramadorMvc\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\willian.oliveira\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -44,6 +44,26 @@
             "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
               "target": "Package",
               "version": "[5.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.14, )"
             }
           },
           "imports": [

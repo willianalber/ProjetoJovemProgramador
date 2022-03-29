@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
+using JovemProgramadorMvc.Data.Repositorio.Interfaces;
 using JovemProgramadorMvc.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -13,13 +14,15 @@ namespace JovemProgramadorMvc.Controllers
     public class AlunoController : Controller
     {
         private readonly IConfiguration _configuration;
-        public AlunoController(IConfiguration configuration)
+        private readonly IAlunoRepositorio _alunoRepository;
+        public AlunoController(IConfiguration configuration, IAlunoRepositorio alunoRepository)
         {
             _configuration = configuration;
+            _alunoRepository = alunoRepository;
         }
 
         public IActionResult Index()
-        {
+        { 
             return View();
         }
 
@@ -64,6 +67,14 @@ namespace JovemProgramadorMvc.Controllers
             }
 
             return View("BuscarEndereco", enderecoModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> InserirAsync(AlunoModel aluno)
+        {
+            AlunoModel alunoModel = await _alunoRepository.Inserir(aluno);
+
+            return RedirectToAction("Index");
         }
     }
 }
