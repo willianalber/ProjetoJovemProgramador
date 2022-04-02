@@ -22,8 +22,10 @@ namespace JovemProgramadorMvc.Controllers
         }
 
         public IActionResult Index()
-        { 
-            return View();
+        {
+            var alunos = _alunoRepository.BuscarAlunos();
+
+            return View(alunos);
         }
 
         public IActionResult Adicionar()
@@ -70,9 +72,9 @@ namespace JovemProgramadorMvc.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> InserirAsync(AlunoModel aluno)
+        public IActionResult InserirAsync(AlunoModel aluno)
         {
-            AlunoModel alunoModel = await _alunoRepository.Inserir(aluno);
+            AlunoModel alunoModel = _alunoRepository.Inserir(aluno);
 
             return RedirectToAction("Index");
         }

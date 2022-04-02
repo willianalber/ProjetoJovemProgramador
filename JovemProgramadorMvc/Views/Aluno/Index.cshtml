@@ -1,4 +1,13 @@
-﻿<div>
+﻿@model List<AlunoModel>
+
+@if (ViewData["Mensagem"] != null)
+{
+<div class="alert-danger">
+    @ViewData["Mensagem"]
+</div>
+}
+
+<div>
     <h1>
         Dados dos alunos
     </h1>
@@ -15,50 +24,23 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Willian</td>
-                <td>29</td>
-                <td>47996847260</td>
-                <td>willianinfo2017@gmail.com</td>
-                <td>89110-430</td>
-                <td>
-                    <a type="button" class="btn btn-primary" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="89110-430">Endereço</a>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Pedro</td>
-                <td>18</td>
-                <td>479999-9999</td>
-                <td>Pedro@gmail.com</td>
-                <td>89110-430</td>
-                <td>
-                    <a type="button" class="btn btn-primary" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="89110-430">Endereço</a>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Ruan</td>
-                <td>25</td>
-                <td>479999-9999</td>
-                <td>Ruan@gmail.com</td>
-                <td>89110-430</td>
-                <td>
-                    <a type="button" class="btn btn-primary" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="89110-430">Endereço</a>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">4</th>
-                <td>Beatrice</td>
-                <td>17</td>
-                <td>479999-9999</td>
-                <td>Beatrice@gmail.com</td>
-                <td>89110-430</td>
-                <td>
-                    <a type="button" class="btn btn-primary" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="3-2">Endereço</a>
-                </td>
-            </tr>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var aluno in Model)
+                {
+                    <tr>
+                        <th scope="row">@aluno.Id</th>
+                        <td>@aluno.Nome</td>
+                        <td>@aluno.Idade</td>
+                        <td>@aluno.Contato</td>
+                        <td>@aluno.Email</td>
+                        <td>@aluno.Cep</td>
+                        <td>
+                            <a type="button" class="btn btn-primary" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep=@aluno.Cep>Endereço</a>
+                        </td>
+                    </tr>
+                }
+            }
         </tbody>
     </table>
     <div class="text-center">

@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using JovemProgramadorMvc.Data.Context;
 using JovemProgramadorMvc.Data.Repositorio.Interfaces;
 using JovemProgramadorMvc.Models;
@@ -16,10 +14,15 @@ namespace JovemProgramadorMvc.Data.Repositorio
             _bancoContexto = bancoContexto;
         }
 
-        public async Task<AlunoModel> Inserir(AlunoModel aluno)
+        public IList<AlunoModel> BuscarAlunos()
         {
-            await _bancoContexto.Aluno.AddAsync(aluno);
-            await _bancoContexto.SaveChangesAsync();
+            return _bancoContexto.Aluno.ToList();
+        }
+
+        public AlunoModel Inserir(AlunoModel aluno)
+        {
+            _bancoContexto.Aluno.Add(aluno);
+            _bancoContexto.SaveChanges();
             return aluno;
         }
     }
