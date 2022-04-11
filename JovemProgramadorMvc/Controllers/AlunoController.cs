@@ -53,7 +53,7 @@ namespace JovemProgramadorMvc.Controllers
                     if (string.IsNullOrEmpty(enderecoModel.complemento))
                     {
                         enderecoModel.complemento = "Nenhum";
-                    }
+                    }                    
                 }
                 else
                 {
@@ -62,9 +62,9 @@ namespace JovemProgramadorMvc.Controllers
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                ViewData["Mensagem"] = $"Erro na busca do endereço! Mensagem: {ex.Message}";
                 throw;
             }
 
@@ -74,9 +74,17 @@ namespace JovemProgramadorMvc.Controllers
         [HttpPost]
         public IActionResult InserirAsync(AlunoModel aluno)
         {
-            AlunoModel alunoModel = _alunoRepository.Inserir(aluno);
+            var sucesso = _alunoRepository.Inserir(aluno);
 
-            return RedirectToAction("Index");
+            if (!sucesso)
+            {
+                ViewData["MensagemErro"] = "Houve um erro ao cadastrar o aluno, verifique!";
+                return View();
+            }
+            
+            ViewData["MensagemSucesso"] = "Aluno cadastrado com sucesso!";
+            
+            return RedirectToAction("Index", ViewData["MensagemSucesso"]);
         }
     }
 }

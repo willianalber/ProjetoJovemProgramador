@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using JovemProgramadorMvc.Data.Context;
 using JovemProgramadorMvc.Data.Repositorio.Interfaces;
@@ -19,11 +20,18 @@ namespace JovemProgramadorMvc.Data.Repositorio
             return _bancoContexto.Aluno.ToList();
         }
 
-        public AlunoModel Inserir(AlunoModel aluno)
+        public bool Inserir(AlunoModel aluno)
         {
-            _bancoContexto.Aluno.Add(aluno);
-            _bancoContexto.SaveChanges();
-            return aluno;
+            try
+            {
+                _bancoContexto.Aluno.Add(aluno);
+                _bancoContexto.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

@@ -6,7 +6,7 @@ namespace JovemProgramadorMvc.Data.Repositorio.Interfaces
 {
     public interface IAlunoRepositorio
     {
-        AlunoModel Inserir(AlunoModel aluno);
+        bool Inserir(AlunoModel aluno);
         IList<AlunoModel> BuscarAlunos();
     }
 }

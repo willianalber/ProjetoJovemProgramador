@@ -2,9 +2,16 @@
 
 @if (ViewData["Mensagem"] != null)
 {
-<div class="alert-danger">
-    @ViewData["Mensagem"]
-</div>
+    <div class="alert-danger">
+        @ViewData["Mensagem"]
+    </div>
+}
+
+@if (ViewData["MensagemSucesso"] != null)
+{
+    <div class="alert-success">
+        @ViewData["MensagemSucesso"]
+    </div>
 }
 
 <div>
